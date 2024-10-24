@@ -16,6 +16,10 @@ camera.rotation.set(0, Math.PI / 2, 0);
 controls.update();
 
 let mousePos = new THREE.Vector2();
+// Enable shadows for the renderer and the directional light
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
 SceneSetup.init_scene(scene);
 /*
 await RAPIER.init();

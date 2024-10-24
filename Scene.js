@@ -10,17 +10,19 @@ import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUnifo
 const background_geo = new THREE.PlaneGeometry(500, 500);
 const background_mat = new THREE.MeshStandardMaterial({color: 0x999999});//{color: 0x14130f});
 const background_mesh = new THREE.Mesh(background_geo, background_mat);
+background_mesh.receiveShadow = true;
 
 // Text
 let text_mesh;
 
 //Light
 const ambient_light = new THREE.AmbientLight(0xffffff, 2);
-RectAreaLightUniformsLib.init();
+//RectAreaLightUniformsLib.init();
 const distance = 15;
 const rectLight1 = new THREE.RectAreaLight( 0xff0000, 5, 4, 10 );
 const rectLight2 = new THREE.RectAreaLight(0x00ff00, 5, 4, 10);
 const rectLight3 = new THREE.RectAreaLight(0x0000ff, 5, 4, 10);
+rectLight1.castShadow = true;
 rectLight1.position.set(- 5, 5, distance);
 rectLight2.position.set(0, 5, distance);
 rectLight3.position.set(5, 5, distance);
